@@ -90,7 +90,7 @@
 
 Agora é a fazer. Faça um fork desse repositório e envie seu pull-request SOMENTE quando concluir seu aplicativo.  
 
-> - Entre em contato caso tenha alguma sobre as especificações.
+> - Entre em contato caso tenha alguma dúvida sobre as especificações.
 
 
 Boa sorte!
