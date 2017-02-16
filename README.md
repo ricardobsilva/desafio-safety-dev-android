@@ -39,12 +39,15 @@
 ** Exemplo de como o Json deverá ser enviado para o serviço 
 
 {
-  "name": "JavaScript",
-  "description": "JavaScript é uma linguagem de programação interpretada.",
-  "imei": "478954564798445",
-  "reason_to_learn": "Javascript permite você usar a mesma linguagem tanto no Front-End quando no Back-End...",
-  "username": "Bruce Wayne"
+    "suggestion": {
+	  "name": "JavaScript",
+	  "description": "JavaScript é uma linguagem de programação interpretada.",
+	  "imei": "478954564798445",
+	  "reason_to_learn": "Javascript permite você usar a mesma linguagem tanto no Front-End quando no Back-End...",
+	  "username": "Bruce Wayne"
+    }
 }
+
 
 
 
