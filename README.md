@@ -5,7 +5,7 @@
 
 ## Rotas da API
 
-### GET[/api/v1/suggestions ]
+### GET[/api/v1/suggestions]
 
 > - Esse serviço trará uma sugestão de linguagem por vez, de maneira aleatória, contendo id, name, description,   IMEI (número de identificação único do celular) , reason_to_learn da linguagem em questão e username(nome do usuário que a cadastrou) como atributos. O usuário terá a opção de solicitar uma nova sugestão caso não goste da que foi dada.
 
