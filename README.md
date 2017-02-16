@@ -84,6 +84,7 @@
 > - Desconsideraremos entregas após o prazo estipulado
 > - O horário do PR criado será considerado como hora da entrega
 > - Não é obrigatório, mas criar testes para seu código será um plus
+> - Ao concluir o teste e abrir o PR, gere o apk do aplicativo e envie para selecao@safetysystemtechnology.com.br (de preferencia zipado)
 
 	
 
