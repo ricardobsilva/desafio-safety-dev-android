@@ -1,0 +1,12 @@
+<resources>
+    <string name="welcome">Bem vindo!</string>
+    <string name="cancel_login">Operação de login cancelada!</string>
+    <string name="error_login">Ocorreu um erro de autenticação!</string>
+    <string name="logout">Sair</string>
+    <string name="facebook_app_id">1577911235570648</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="title_activity_scrolling">ScrollingActivity</string>
+    <string name="app_name">Development community</string>
+    <string name="action_logout">Sair</string>
+    <string name="action_about">Sobre</string>
+</resources>
