@@ -12,6 +12,7 @@ import com.rogalabs.lib.model.SocialUser;
 import org.jetbrains.annotations.NotNull;
 
 import netodevel.com.br.safety.controller.UserDataBaseController;
+import netodevel.com.br.safety.domain.User;
 import netodevel.com.br.test_safety.R;
 
 /**
@@ -33,7 +34,7 @@ public class MainActivity extends LoginView {
                     @Override
                     public void onSuccess(@NotNull SocialUser socialUser) {
                         saveUserDataBase(getBaseContext(), socialUser.getName());
-                        buildHomeActivity();
+                        buildHomeActivity(socialUser.getName());
                     }
                     @Override
                     public void onError(@NotNull Throwable throwable) {
@@ -42,11 +43,11 @@ public class MainActivity extends LoginView {
                 });
             }
         });
-
     }
 
-    private void buildHomeActivity() {
+    private void buildHomeActivity(String userName) {
         Intent intent = new Intent(getBaseContext(), HomeActivity.class);
+        intent.putExtra("username", userName);
         startActivity(intent);
     }
 
@@ -60,7 +61,8 @@ public class MainActivity extends LoginView {
     private void buildLoggedActivity(Context context) {
         UserDataBaseController userDataBaseController = new UserDataBaseController(context);
         if (userDataBaseController.validateLogged()){
-            buildHomeActivity();
+            User user = userDataBaseController.findOne();
+            buildHomeActivity(user.getName());
         }
     }
 
