@@ -52,7 +52,9 @@ public class HomeActivity extends Activity {
                     @Override
                     public void onResponse(Call<Suggestion> call, Response<Suggestion> response) {
                         suggestionTxt.setText("Nome: " + response.body().getName() + "\n"
-                                            + "Descrição: " + response.body().getDescription()+ "\n");
+                                            + "Descrição: " + response.body().getDescription()+ "\n"
+                                            + "Razão para aprender: " + response.body().getReasonToLearn() + "\n"
+                                            + "Cadastrada por: " + response.body().getUsername());
                     }
 
                     @Override

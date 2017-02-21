@@ -28,6 +28,9 @@ public class SuggestionActivity extends Activity {
     private EditText inputName;
     private EditText inputDescription;
     private EditText inputReasonToLearn;
+    private EditText inputUserName;
+    private EditText inputImei;
+
 
     @Rest(baseUrl = "https://teste-safety.herokuapp.com/api/v1/")
     private SuggestionClient suggestionClient;
@@ -41,6 +44,8 @@ public class SuggestionActivity extends Activity {
 
         Intent intent = getIntent();
         final String name = intent.getStringExtra("username");
+
+        prepareForm(name);
 
         findViewById(R.id.btn_send_suggestion).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,19 +76,29 @@ public class SuggestionActivity extends Activity {
         suggestion.setName(inputName.getText().toString());
         suggestion.setDescription(inputDescription.getText().toString());
         suggestion.setReasonToLearn(inputReasonToLearn.getText().toString());
-
-        TelephonyManager telephonyManager = (TelephonyManager)getSystemService(Context.TELEPHONY_SERVICE);
-        suggestion.setImei(telephonyManager.getDeviceId());
-
+        suggestion.setImei(getImei());
         suggestion.setUsername(userName);
-
         return suggestion;
+    }
+
+    public String getImei() {
+        TelephonyManager telephonyManager = (TelephonyManager)getSystemService(Context.TELEPHONY_SERVICE);
+        return telephonyManager.getDeviceId();
+    }
+
+    public void prepareForm(String userName) {
+        inputUserName.setText(userName);
+        inputImei.setText(getImei());
+        inputUserName.setEnabled(false);
+        inputImei.setEnabled(false);
     }
 
     public void initView() {
         inputName = (EditText) findViewById(R.id.input_name);
-        inputDescription = (EditText) findViewById(R.id.input_descricao);
+        inputDescription = (EditText) findViewById(R.id.editText7);
         inputReasonToLearn = (EditText) findViewById(R.id.input_reason);
+        inputUserName = (EditText) findViewById(R.id.input_user_name);
+        inputImei = (EditText) findViewById(R.id.input_imei);
     }
 
 }
