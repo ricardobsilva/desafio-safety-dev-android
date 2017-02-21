@@ -8,6 +8,7 @@ import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.rogalabs.restfactory.RestFactory;
 import com.rogalabs.restfactory.annotations.Rest;
@@ -49,6 +50,8 @@ public class SuggestionActivity extends Activity {
                     @Override
                     public void onResponse(Call<Suggestion> call, Response<Suggestion> response) {
                         Log.i("response", String.valueOf(response.code()));
+                        Toast toast = Toast.makeText(getBaseContext(), "Sugestão enviada com sucesso.", Toast.LENGTH_SHORT);
+                        toast.show();
                         Intent intent = new Intent(getBaseContext(), HomeActivity.class);
                         intent.putExtra("username", name);
                         startActivity(intent);
