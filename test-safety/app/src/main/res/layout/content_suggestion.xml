@@ -9,45 +9,53 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="netodevel.com.br.safety.HomeActivity"
-    tools:showIn="@layout/activity_home">
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Logout"
-        android:id="@+id/btn_logout"
-        android:layout_below="@+id/user_name"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+    tools:context="netodevel.com.br.safety.SuggestionActivity"
+    tools:showIn="@layout/activity_suggestion">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Large Text"
-        android:id="@+id/user_name"
+        android:text="Enviar Sugestão"
+        android:id="@+id/textView"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
-    <TextView
-        android:layout_width="wrap_content"
+    <EditText
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Large Text"
-        android:id="@+id/suggestion"
-        android:layout_below="@+id/btn_logout"
+        android:id="@+id/input_name"
+        android:hint="nome"
+        android:layout_below="@+id/textView"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="85dp" />
+        android:layout_marginTop="41dp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="descrição"
+        android:id="@+id/input_descricao"
+        android:layout_below="@+id/input_name"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="razão para estudar"
+        android:id="@+id/input_reason"
+        android:layout_below="@+id/input_descricao"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Sugestão de Linguagem"
-        android:id="@+id/btn_suggestion"
-        android:layout_below="@+id/btn_logout"
+        android:text="Enviar Sugestão"
+        android:id="@+id/button"
+        android:layout_centerVertical="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 

@@ -6,11 +6,20 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
+import com.rogalabs.restfactory.RestFactory;
+import com.rogalabs.restfactory.annotations.Rest;
+
+import netodevel.com.br.safety.client.SuggestionClient;
 import netodevel.com.br.safety.controller.UserDataBaseController;
+import netodevel.com.br.safety.domain.Suggestion;
 import netodevel.com.br.test_safety.R;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * @author NetoDevel
@@ -18,11 +27,17 @@ import netodevel.com.br.test_safety.R;
 public class HomeActivity extends Activity {
 
     private TextView userName;
+    private TextView suggestionTxt;
+
+    @Rest(baseUrl = "https://teste-safety.herokuapp.com/api/v1/")
+    private SuggestionClient suggestionClient;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        RestFactory.make(this);
 
         initView();
 
@@ -30,12 +45,33 @@ public class HomeActivity extends Activity {
         final String name = intent.getStringExtra("username");
         userName.setText(String.format("NAME : %s", name));
 
+        findViewById(R.id.btn_suggestion).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final Call<Suggestion> suggestion = suggestionClient.getSuggestion();
+                suggestion.enqueue(new Callback<Suggestion>() {
+                    @Override
+                    public void onResponse(Call<Suggestion> call, Response<Suggestion> response) {
+                        suggestionTxt.setText("Nome: " + response.body().getName() + "\n"
+                                            + "Descrição: " + response.body().getDescription()+ "\n");
+                    }
+
+                    @Override
+                    public void onFailure(Call<Suggestion> call, Throwable t) {
+                        Log.d("Error", "", t);
+                    }
+                });
+
+            }
+        });
+
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+            Intent intent = new Intent(getBaseContext(), SuggestionActivity.class);
+            startActivity(intent);
             }
         });
 
@@ -49,6 +85,7 @@ public class HomeActivity extends Activity {
 
     public void initView() {
         userName = (TextView) findViewById(R.id.user_name);
+        suggestionTxt = (TextView) findViewById(R.id.suggestion);
     }
 
     private void logout(Context context, String userName) {

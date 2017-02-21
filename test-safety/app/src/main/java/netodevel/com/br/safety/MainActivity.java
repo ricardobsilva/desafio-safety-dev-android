@@ -32,7 +32,7 @@ public class MainActivity extends LoginView {
             public void onClick(View v) {
                 loginWithFacebook(new Callback() {
                     @Override
-                    public void onSuccess(@NotNull SocialUser socialUser) {
+                    public void onSuccess (@NotNull SocialUser socialUser) {
                         saveUserDataBase(getBaseContext(), socialUser.getName());
                         buildHomeActivity(socialUser.getName());
                     }
