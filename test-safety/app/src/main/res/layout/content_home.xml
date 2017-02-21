@@ -13,7 +13,7 @@
     tools:showIn="@layout/activity_home">
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Logout"
         android:id="@+id/btn_logout"
@@ -32,10 +32,9 @@
         android:layout_alignParentStart="true" />
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Large Text"
         android:id="@+id/suggestion"
         android:layout_below="@+id/btn_logout"
         android:layout_alignParentLeft="true"
@@ -43,7 +42,7 @@
         android:layout_marginTop="85dp" />
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Sugestão de Linguagem"
         android:id="@+id/btn_suggestion"

@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
@@ -36,9 +35,7 @@ public class HomeActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-
         RestFactory.make(this);
-
         initView();
 
         Intent intent = getIntent();
@@ -70,8 +67,9 @@ public class HomeActivity extends Activity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-            Intent intent = new Intent(getBaseContext(), SuggestionActivity.class);
-            startActivity(intent);
+                Intent intent = new Intent(getBaseContext(), SuggestionActivity.class);
+                intent.putExtra("username", name);
+                startActivity(intent);
             }
         });
 

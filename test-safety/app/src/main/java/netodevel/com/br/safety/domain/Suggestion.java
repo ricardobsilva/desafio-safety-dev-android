@@ -64,6 +64,14 @@ public class Suggestion {
         this.updatedAt = updatedAt;
     }
 
+    public Suggestion(String name, String description, String imei, String reasonToLearn, String username) {
+        this.name = name;
+        this.description = description;
+        this.imei = imei;
+        this.reasonToLearn = reasonToLearn;
+        this.username = username;
+    }
+
     public Integer getId() {
         return id;
     }
