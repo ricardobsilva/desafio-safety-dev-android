@@ -17,7 +17,7 @@ import com.rogalabs.restfactory.annotations.Rest;
 import netodevel.com.br.safety.client.SuggestionClient;
 import netodevel.com.br.safety.controller.UserDataBaseController;
 import netodevel.com.br.safety.domain.Suggestion;
-import netodevel.com.br.test_safety.R;
+import netodevel.com.br.safety.R;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;

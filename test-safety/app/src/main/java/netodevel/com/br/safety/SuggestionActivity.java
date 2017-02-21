@@ -15,7 +15,7 @@ import com.rogalabs.restfactory.annotations.Rest;
 
 import netodevel.com.br.safety.client.SuggestionClient;
 import netodevel.com.br.safety.domain.Suggestion;
-import netodevel.com.br.test_safety.R;
+import netodevel.com.br.safety.R;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -30,7 +30,6 @@ public class SuggestionActivity extends Activity {
     private EditText inputReasonToLearn;
     private EditText inputUserName;
     private EditText inputImei;
-
 
     @Rest(baseUrl = "https://teste-safety.herokuapp.com/api/v1/")
     private SuggestionClient suggestionClient;
