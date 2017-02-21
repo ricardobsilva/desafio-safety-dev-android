@@ -1,7 +1,7 @@
-package netodevel.com.br.test_safety;
+package netodevel.com.br.safety;
 
+import android.content.Context;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
@@ -11,7 +11,8 @@ import com.rogalabs.lib.model.SocialUser;
 
 import org.jetbrains.annotations.NotNull;
 
-import netodevel.com.br.test_safety.fragments.HomeFragment;
+import netodevel.com.br.safety.controller.UserDataBaseController;
+import netodevel.com.br.test_safety.R;
 
 /**
  * @author NetoDevel
@@ -23,12 +24,15 @@ public class MainActivity extends LoginView {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        buildLoggedActivity(getBaseContext());
+
         findViewById(R.id.facebook_btn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 loginWithFacebook(new Callback() {
                     @Override
                     public void onSuccess(@NotNull SocialUser socialUser) {
+                        saveUserDataBase(getBaseContext(), socialUser.getName());
                         buildHomeActivity();
                     }
                     @Override
@@ -37,13 +41,27 @@ public class MainActivity extends LoginView {
                     }
                 });
             }
-
         });
 
     }
 
     private void buildHomeActivity() {
-        Intent intent = new Intent(this, HomeFragment.class);
+        Intent intent = new Intent(getBaseContext(), HomeActivity.class);
         startActivity(intent);
     }
+
+    private void saveUserDataBase(Context context, String userName) {
+        UserDataBaseController userDataBaseController = new UserDataBaseController(context);
+        if (userDataBaseController.validateLogged()== false) {
+            userDataBaseController.save(userName);
+        }
+    }
+
+    private void buildLoggedActivity(Context context) {
+        UserDataBaseController userDataBaseController = new UserDataBaseController(context);
+        if (userDataBaseController.validateLogged()){
+            buildHomeActivity();
+        }
+    }
+
 }

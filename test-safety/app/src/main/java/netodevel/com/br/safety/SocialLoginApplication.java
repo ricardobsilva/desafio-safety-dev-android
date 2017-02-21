@@ -1,4 +1,4 @@
-package netodevel.com.br.test_safety;
+package netodevel.com.br.safety;
 
 import android.app.Application;
 
