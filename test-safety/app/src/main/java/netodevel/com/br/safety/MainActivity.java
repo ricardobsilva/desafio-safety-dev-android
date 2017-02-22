@@ -11,9 +11,9 @@ import com.rogalabs.lib.model.SocialUser;
 
 import org.jetbrains.annotations.NotNull;
 
+import netodevel.com.br.safety.R;
 import netodevel.com.br.safety.controller.UserDataBaseController;
 import netodevel.com.br.safety.domain.User;
-import netodevel.com.br.safety.R;
 
 /**
  * @author NetoDevel

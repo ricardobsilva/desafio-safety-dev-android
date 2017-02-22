@@ -29,7 +29,6 @@ public class SuggestionActivity extends Activity {
     private EditText inputDescription;
     private EditText inputReasonToLearn;
     private EditText inputUserName;
-    private EditText inputImei;
 
     @Rest(baseUrl = "https://teste-safety.herokuapp.com/api/v1/")
     private SuggestionClient suggestionClient;
@@ -75,7 +74,7 @@ public class SuggestionActivity extends Activity {
         suggestion.setName(inputName.getText().toString());
         suggestion.setDescription(inputDescription.getText().toString());
         suggestion.setReasonToLearn(inputReasonToLearn.getText().toString());
-        suggestion.setImei(getImei());
+        suggestion.setImei("");
         suggestion.setUsername(userName);
         return suggestion;
     }
@@ -87,9 +86,7 @@ public class SuggestionActivity extends Activity {
 
     public void prepareForm(String userName) {
         inputUserName.setText(userName);
-        inputImei.setText(getImei());
         inputUserName.setEnabled(false);
-        inputImei.setEnabled(false);
     }
 
     public void initView() {
@@ -97,7 +94,6 @@ public class SuggestionActivity extends Activity {
         inputDescription = (EditText) findViewById(R.id.editText7);
         inputReasonToLearn = (EditText) findViewById(R.id.input_reason);
         inputUserName = (EditText) findViewById(R.id.input_user_name);
-        inputImei = (EditText) findViewById(R.id.input_imei);
     }
 
 }
